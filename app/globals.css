@@ -1,0 +1,582 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ============================================
+     TYPOGRAPHY SYSTEM
+     Change these values to update typography globally
+     ============================================ */
+
+  /* Font sizes */
+  --text-title: 20px;
+  --text-subtitle: 14px;
+  --text-body: 14px;
+  --text-button: 12px;
+  --text-caption: 12px;
+  --text-underline: 10px;
+
+  /* Font weights */
+  --weight-title: 600;
+  --weight-subtitle: 700;
+  --weight-body: 500;
+  --weight-button: 500;
+  --weight-caption: 500;
+  --weight-underline: 400;
+
+  /* ============================================
+     COLOR PALETTE
+     ============================================ */
+
+  /* Primary colors */
+  --vivid-green: #00eb2f;
+
+  /* Secondary colors */
+  --saffron: #FAC42A;
+  --white: #FFFFFF;
+
+  /* Base colors */
+  --deep-twilight: #0D0B50;
+  --dusty-grape: #57577D;
+  --periwinkle: #ADB2D3;
+  --periwinkle-light: #F5F5F5;
+
+  /* ============================================
+     COLORS & OTHER TOKENS
+     ============================================ */
+  --background: #ffffff;
+  --foreground: #0b0f13;
+  --card: #f8fafc;
+  --card-foreground: #0b0f13;
+  --popover: #ffffff;
+  --popover-foreground: #0b0f13;
+  --primary: var(--vivid-green);
+  --primary-foreground: #000000;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0b0f13;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f1f5f9;
+  --accent-foreground: #0b0f13;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: var(--vivid-green);
+  --chart-1: var(--vivid-green);
+  --chart-2: #f59e0b;
+  --chart-3: #84cc16;
+  --chart-4: #3b82f6;
+  --chart-5: #a855f7;
+  --font-sans: var(--font-poppins), Poppins, sans-serif;
+  --font-serif: serif;
+  --font-mono: monospace;
+  --radius: 0.5rem;
+  --shadow-x: 0px;
+  --shadow-y: 4px;
+  --shadow-blur: 10px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.1;
+  --shadow-color: #000000;
+  --shadow-2xs: 0px 4px 10px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 4px 10px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.25);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: #0a0a0c;
+  --foreground: #f8fafc;
+  --card: #161b22;
+  --card-foreground: #f8fafc;
+  --popover: #0b0f13;
+  --popover-foreground: #f8fafc;
+  --primary: var(--vivid-green);
+  --primary-foreground: #000000;
+  --secondary: #21262d;
+  --secondary-foreground: #f8fafc;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --accent: #21262d;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #27272a;
+  --input: #21262d;
+  --ring: var(--vivid-green);
+  --chart-1: var(--vivid-green);
+  --chart-2: #f59e0b;
+  --chart-3: #84cc16;
+  --chart-4: #3b82f6;
+  --chart-5: #a855f7;
+  --font-sans: var(--font-poppins), Poppins, sans-serif;
+  --font-serif: serif;
+  --font-mono: monospace;
+  --radius: 0.5rem;
+  --shadow-x: 0px;
+  --shadow-y: 4px;
+  --shadow-blur: 10px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.2;
+  --shadow-color: #000000;
+  --shadow-2xs: 0px 4px 10px 0px hsl(0 0% 0% / 0.10);
+  --shadow-xs: 0px 4px 10px 0px hsl(0 0% 0% / 0.10);
+  --shadow-sm: 0px 4px 10px 0px hsl(0 0% 0% / 0.20), 0px 1px 2px -1px hsl(0 0% 0% / 0.20);
+  --shadow: 0px 4px 10px 0px hsl(0 0% 0% / 0.20), 0px 1px 2px -1px hsl(0 0% 0% / 0.20);
+  --shadow-md: 0px 4px 10px 0px hsl(0 0% 0% / 0.20), 0px 2px 4px -1px hsl(0 0% 0% / 0.20);
+  --shadow-lg: 0px 4px 10px 0px hsl(0 0% 0% / 0.20), 0px 4px 6px -1px hsl(0 0% 0% / 0.20);
+  --shadow-xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.20), 0px 8px 10px -1px hsl(0 0% 0% / 0.20);
+  --shadow-2xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.50);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Custom color palette */
+  --color-vivid-green: var(--vivid-green);
+  --color-saffron: var(--saffron);
+  --color-deep-twilight: var(--deep-twilight);
+  --color-dusty-grape: var(--dusty-grape);
+  --color-periwinkle: var(--periwinkle);
+  --color-periwinkle-light: var(--periwinkle-light);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+body {
+  letter-spacing: var(--tracking-normal);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins), Poppins, ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: var(--tracking-normal);
+  }
+
+  /* Hide scrollbar for all elements while maintaining scroll functionality */
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  *::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITY CLASSES
+   Use these classes for consistent typography
+   Prefix: typo- to avoid conflicts with Tailwind text-* color utilities
+   ============================================ */
+@layer utilities {
+  .typo-title {
+    font-size: var(--text-title);
+    font-weight: var(--weight-title);
+  }
+
+  .typo-subtitle {
+    font-size: var(--text-subtitle);
+    font-weight: var(--weight-subtitle);
+  }
+
+  .typo-body {
+    font-size: var(--text-body);
+    font-weight: var(--weight-body);
+  }
+
+  .typo-button {
+    font-size: var(--text-button);
+    font-weight: var(--weight-button);
+  }
+
+  .typo-caption {
+    font-size: var(--text-caption);
+    font-weight: var(--weight-caption);
+  }
+
+  .typo-underline {
+    font-size: var(--text-underline);
+    font-weight: var(--weight-underline);
+  }
+
+  /* Color utilities */
+  .text-vivid-green {
+    color: var(--vivid-green);
+  }
+  .bg-vivid-green {
+    background-color: var(--vivid-green);
+  }
+
+  .text-saffron {
+    color: var(--saffron);
+  }
+  .bg-saffron {
+    background-color: var(--saffron);
+  }
+
+  .text-deep-twilight {
+    color: var(--deep-twilight);
+  }
+  .bg-deep-twilight {
+    background-color: var(--deep-twilight);
+  }
+
+  .text-dusty-grape {
+    color: var(--dusty-grape);
+  }
+  .bg-dusty-grape {
+    background-color: var(--dusty-grape);
+  }
+
+  .text-periwinkle {
+    color: var(--periwinkle);
+  }
+  .bg-periwinkle {
+    background-color: var(--periwinkle);
+  }
+
+  .text-periwinkle-light {
+    color: var(--periwinkle-light);
+  }
+  .bg-periwinkle-light {
+    background-color: var(--periwinkle-light);
+  }
+
+  /* Marquee animation for long text */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 8s linear infinite;
+  }
+
+  /* Marquee bar animation - consistent speed across all viewports */
+  @keyframes marquee-bar {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee-bar {
+    animation: marquee-bar 20s linear infinite;
+  }
+
+  /* Infinite horizontal scroll animation - left to right appearance (scrolls content left) */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 20s linear infinite;
+  }
+
+  /* True infinite marquee for cards - GPU accelerated */
+  @keyframes marquee-infinite {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .animate-marquee-infinite {
+    animation: marquee-infinite 30s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  /* Nav token symbol marquee - continuous scroll */
+  @keyframes nav-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-nav-marquee {
+    animation: nav-marquee 2s linear infinite;
+  }
+}
+
+/* Sonner toast centering */
+[data-sonner-toaster] {
+  --offset: 16px !important;
+}
+
+[data-sonner-toaster][data-x-position="center"] {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+[data-sonner-toaster][data-x-position="center"] [data-sonner-toast] {
+  width: fit-content !important;
+  max-width: calc(100vw - 32px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Safe area support for iOS devices with home indicator */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.safe-area-pt {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Prevent iOS zoom on input focus - inputs need 16px+ font size */
+@media screen and (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Fix TradingView chart scaling in wallet in-app browsers */
+[id*="tradingview-chart"] {
+  transform: none !important;
+  zoom: 1 !important;
+  -webkit-transform: none !important;
+}
+
+[id*="tradingview-chart"] iframe {
+  transform: none !important;
+  zoom: 1 !important;
+  -webkit-transform: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+}
+
+/* Prevent wallet webviews from scaling page content */
+@media screen and (max-width: 768px) {
+  html, body {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+}
+
+/* Jupiter Unified Wallet Modal - Custom styling */
+dialog[open] {
+  background: transparent !important;
+  border: none !important;
+  z-index: 9999 !important;
+  position: fixed !important;
+  pointer-events: auto !important;
+}
+
+dialog[open]::backdrop {
+  background: rgba(0, 0, 0, 0.8) !important;
+  z-index: 9998 !important;
+  pointer-events: auto !important;
+}
+
+/* Modal content container - using dark background */
+dialog[open] > div {
+  background-color: #111114 !important;
+  border: 1px solid rgba(39, 39, 42, 0.5) !important;
+  border-radius: 0.75rem !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure all interactive elements in dialog are clickable */
+dialog[open] * {
+  pointer-events: auto !important;
+}
+
+/* Wallet list items hover state */
+dialog[open] ul:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Center on mobile */
+@media screen and (max-width: 768px) {
+  dialog[open] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+}
+
+/* ============================================
+   TRADINGVIEW CHART THEME
+   Custom styling for TradingView charting library
+   Brand colors: Green (#00eb2f), clean dark theme
+   ============================================ */
+:root:not(.theme-dark),
+.theme-dark:root {
+  /* Background colors - matches ChartPanel */
+  --tv-color-platform-background: #111114;
+  --tv-color-pane-background: #111114;
+
+  /* Toolbar button states */
+  --tv-color-toolbar-button-background-hover: rgba(255, 255, 255, 0.08);
+  --tv-color-toolbar-button-background-expanded: rgba(255, 255, 255, 0.08);
+  --tv-color-toolbar-button-background-active: rgba(0, 235, 47, 0.15);
+  --tv-color-toolbar-button-background-active-hover: rgba(0, 235, 47, 0.2);
+
+  /* Toolbar text colors - using brand green for active states */
+  --tv-color-toolbar-button-text: #6b7280;
+  --tv-color-toolbar-button-text-hover: #ffffff;
+  --tv-color-toolbar-button-text-active: #00eb2f;
+  --tv-color-toolbar-button-text-active-hover: #00eb2f;
+  --tv-color-item-active-text: #00eb2f;
+
+  /* Toggle buttons */
+  --tv-color-toolbar-toggle-button-background-active: #00eb2f;
+  --tv-color-toolbar-toggle-button-background-active-hover: #00d129;
+
+  /* Dividers and loaders */
+  --tv-color-toolbar-divider-background: #1f1f23;
+  --tv-color-toolbar-save-layout-loader: #6b7280;
+
+  /* Popup/dropdown menus */
+  --tv-color-popup-background: #18181b;
+  --tv-color-popup-element-text: #e4e4e7;
+  --tv-color-popup-element-text-hover: #ffffff;
+  --tv-color-popup-element-background-hover: rgba(255, 255, 255, 0.08);
+  --tv-color-popup-element-divider-background: #27272a;
+  --tv-color-popup-element-secondary-text: #a1a1aa;
+  --tv-color-popup-element-hint-text: #71717a;
+  --tv-color-popup-element-text-active: #ffffff;
+  --tv-color-popup-element-background-active: #00eb2f;
+
+  /* Toolbox elements */
+  --tv-color-popup-element-toolbox-text: #e4e4e7;
+  --tv-color-popup-element-toolbox-text-hover: #ffffff;
+  --tv-color-popup-element-toolbox-text-active-hover: #ffffff;
+  --tv-color-popup-element-toolbox-background-hover: rgba(0, 235, 47, 0.15);
+  --tv-color-popup-element-toolbox-background-active-hover: #00eb2f;
+}
+
+/* Subtle glow pulse animation for Sign In button */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 3px rgba(0, 235, 47, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 235, 47, 0.5), 0 0 18px rgba(0, 235, 47, 0.25);
+  }
+}
+
+/* Intercom widget positioning - move above mobile bottom nav */
+@media screen and (max-width: 767px) {
+  .intercom-launcher,
+  .intercom-lightweight-app-launcher,
+  #intercom-container .intercom-launcher-frame,
+  .intercom-namespace .intercom-with-namespace-52k34s {
+    bottom: 80px !important;
+  }
+
+  /* Also adjust the messenger frame when open */
+  .intercom-messenger-frame,
+  #intercom-container .intercom-messenger-frame {
+    bottom: 80px !important;
+  }
+}
+
+/* Skeleton row visibility based on viewport height */
+.skeleton-tall-row {
+  display: none;
+}
+
+@media (min-height: 850px) {
+  .skeleton-tall-row {
+    display: table-row;
+  }
+}

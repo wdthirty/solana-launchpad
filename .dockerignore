@@ -1,0 +1,75 @@
+# .dockerignore - Unified Stream Service Only
+# Excludes Next.js web app and only includes stream service files
+
+# Dependencies (will be installed in container)
+node_modules
+.pnpm-store
+
+# Next.js app (NOT NEEDED - stream service only)
+app/
+components/
+public/
+styles/
+.next
+out
+build
+next.config.js
+next.config.ts
+next-env.d.ts
+tailwind.config.*
+postcss.config.*
+
+# Development files
+.git
+.gitignore
+.env
+.env.local
+.env*.local
+.vscode
+.idea
+
+# Testing
+coverage
+*.test.ts
+*.test.js
+__tests__
+
+# Documentation
+*.md
+!README.md
+docs
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.cache
+.turbo
+temp
+tmp
+
+# Scripts (not needed in production)
+scripts/
+
+# Documentation files
+*_SUMMARY.md
+*_GUIDE.md
+*_ANALYSIS.md
+*_REVIEW.md
+*_SOLUTION.md
+*_STATUS.md
+*_COMPARISON.md
+
+# Docker files (already in image)
+Dockerfile
+.dockerignore
+docker-compose.yml

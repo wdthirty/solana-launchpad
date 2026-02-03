@@ -1,0 +1,100 @@
+/* ============================================
+   TRADINGVIEW CHART THEME - Launchpad
+   Brand colors: Green (#00eb2f), clean dark theme
+   ============================================ */
+
+:root,
+:root:not(.theme-dark),
+.theme-dark:root {
+  /* Background colors - matches page background */
+  --tv-color-platform-background: #0a0a0c;
+  --tv-color-pane-background: #0a0a0c;
+
+  /* Toolbar button states */
+  --tv-color-toolbar-button-background-hover: rgba(255, 255, 255, 0.08);
+  --tv-color-toolbar-button-background-expanded: rgba(255, 255, 255, 0.08);
+  --tv-color-toolbar-button-background-active: rgba(0, 235, 47, 0.15);
+  --tv-color-toolbar-button-background-active-hover: rgba(0, 235, 47, 0.2);
+
+  /* Toolbar text colors - using brand green for active states */
+  --tv-color-toolbar-button-text: #6b7280;
+  --tv-color-toolbar-button-text-hover: #ffffff;
+  --tv-color-toolbar-button-text-active: #00eb2f;
+  --tv-color-toolbar-button-text-active-hover: #00eb2f;
+  --tv-color-item-active-text: #00eb2f;
+
+  /* Toggle buttons */
+  --tv-color-toolbar-toggle-button-background-active: #00eb2f;
+  --tv-color-toolbar-toggle-button-background-active-hover: #00d129;
+
+  /* Dividers and loaders */
+  --tv-color-toolbar-divider-background: #1f1f23;
+  --tv-color-toolbar-save-layout-loader: #6b7280;
+
+  /* Popup/dropdown menus */
+  --tv-color-popup-background: #0a0a0c;
+  --tv-color-popup-element-text: #e4e4e7;
+  --tv-color-popup-element-text-hover: #ffffff;
+  --tv-color-popup-element-background-hover: rgba(255, 255, 255, 0.08);
+  --tv-color-popup-element-divider-background: #27272a;
+  --tv-color-popup-element-secondary-text: #a1a1aa;
+  --tv-color-popup-element-hint-text: #71717a;
+  --tv-color-popup-element-text-active: #ffffff;
+  --tv-color-popup-element-background-active: #00eb2f;
+
+  /* Toolbox elements */
+  --tv-color-popup-element-toolbox-text: #e4e4e7;
+  --tv-color-popup-element-toolbox-text-hover: #ffffff;
+  --tv-color-popup-element-toolbox-text-active-hover: #ffffff;
+  --tv-color-popup-element-toolbox-background-hover: rgba(0, 235, 47, 0.15);
+  --tv-color-popup-element-toolbox-background-active-hover: #00eb2f;
+
+  /* Crosshair cursor labels (x-axis time, y-axis price) */
+  --tv-color-pane-crosshair-label-background: #0a0a0c;
+  --tv-color-pane-crosshair-label-text: #71717a;
+}
+
+/* Crosshair axis labels - direct CSS targeting */
+.chart-markup-table .pane .pane-legend,
+.price-axis-container .price-axis-label,
+.time-axis-container .time-axis-label,
+div[class*="valueValue"],
+div[class*="priceAxisLabel"],
+div[class*="crosshairLabel"],
+div[class*="cursor-price-label"],
+div[class*="cursorPriceLabel"] {
+  background-color: #0a0a0c !important;
+  color: #71717a !important;
+}
+
+/* Target the floating price/time labels on axes */
+.tv-floating-price-indicator__value,
+.tv-floating-price-indicator {
+  background-color: #0a0a0c !important;
+  color: #71717a !important;
+}
+
+/* Canvas-based crosshair labels (these may be drawn on canvas) */
+.pane-axis-container .price-axis .axis-widget,
+.pane-axis-container .time-axis .axis-widget {
+  --label-bg: #0a0a0c;
+  --label-color: #71717a;
+}
+
+/* Mobile: hide zoom controls (+/-/reset) and scale mode buttons (A/L) */
+@media (max-width: 768px) {
+  /* Hide the control bar with +/- zoom and reset buttons */
+  [class*="controlBar"],
+  [class*="ControlBar"],
+  [class*="control-bar"] {
+    display: none !important;
+  }
+
+  /* Hide Auto (A) and Log (L) scale buttons on price axis */
+  [class*="price-axis-container"] [class*="button"],
+  [class*="priceAxisContainer"] [class*="button"],
+  [class*="scaleButtonsContainer"],
+  [class*="ScaleButtonsContainer"] {
+    display: none !important;
+  }
+}
