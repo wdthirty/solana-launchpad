@@ -119,36 +119,6 @@ lib/
 **Auth**: Wallet signature verification → JWT sessions (jose)
 **Infra**: Vercel, Supabase, Upstash, Helius, Ably
 
-## Getting Started
-
-```bash
-# Install dependencies
-pnpm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Fill in: Supabase URL/keys, Helius API key, Ably key,
-# Upstash Redis credentials, Pinata keys, RPC endpoints
-
-# Run development server
-pnpm dev
-```
-
-### Required Environment Variables
-
-```
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-NEXT_PUBLIC_HELIUS_API_KEY=
-NEXT_PUBLIC_ABLY_API_KEY=
-UPSTASH_REDIS_REST_URL=
-UPSTASH_REDIS_REST_TOKEN=
-PINATA_JWT=
-NEXT_PUBLIC_RPC_ENDPOINT=
-PLATFORM_SIGNER_PRIVATE_KEY=
-```
-
 ## Related
 
 - **[solana-launchpad-pipeline](https://github.com/yourusername/solana-launchpad-pipeline)** — Real-time event processing pipeline. gRPC ingestion from Helius Laserstream → Kinesis → microservices that feed price updates, token events, and balance changes into this frontend via Ably.
