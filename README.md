@@ -121,4 +121,4 @@ lib/
 
 ## Related
 
-- **[solana-launchpad-pipeline](https://github.com/yourusername/solana-launchpad-pipeline)** — Real-time event processing pipeline. gRPC ingestion from Helius Laserstream → Kinesis → microservices that feed price updates, token events, and balance changes into this frontend via Ably.
+- **[solana-launchpad-pipeline](https://github.com/wdthirty/solana-launchpad-pipeline)** — Real-time event processing pipeline. gRPC ingestion from Helius Laserstream → Kinesis → microservices that feed price updates, token events, and balance changes into this frontend via Ably.
